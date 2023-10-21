@@ -13,7 +13,7 @@ public class MenuManagement : MonoBehaviour
     }
     public void quit()
     {
-        Debug.Log("Saiu");
+        //Debug.Log("Saiu");
         Application.Quit();
     }
 }
