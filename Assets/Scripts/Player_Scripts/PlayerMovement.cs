@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public ItemScript itemScr;
+    //public ItemScript itemScr;
     [SerializeField] private Transform player;
     [SerializeField] private Transform Hand;
     public CharacterController controller;
-    public LadderScript ladderScript;
-    public DoorScript doorScript;
+    //public LadderScript ladderScript;
+    //public DoorScript doorScript;
     public Camera playerCamera;
     //
     public float speed = 5.0f;
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         defaultYpos = playerCamera.transform.localPosition.y;
         isRunning = false;
         current_position = transform.position;
-        itemScr = GetComponent<ItemScript>();
+        /*itemScr = GetComponent<ItemScript>();*/
     }
     void Update()
     {
@@ -60,10 +60,10 @@ public class PlayerMovement : MonoBehaviour
             case State.Normal:
             {
                 ApplyGravity();
-                if (itemScr.ItemList.Contains(itemScr.luz))
+                /*if (itemScr.ItemList.Contains(itemScr.luz))
                 {
                     Lanterna(itemScr.luz.gameObject);
-                }
+                }*/
                 float moveX = Input.GetAxis("Horizontal");
                 float moveZ = Input.GetAxis("Vertical");
                 Vector3 dir = moveX * transform.right + moveZ * transform.forward;
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
                 ///
                 controller.Move(dir * speed * Time.deltaTime);
                 ///
-                if (doorScript.fresta == true)
+                /*if (doorScript.fresta == true)
                 {
                     estado = State.Parado;
                 }
@@ -90,19 +90,18 @@ public class PlayerMovement : MonoBehaviour
                 if (ladderScript.range == true)
                 {
                     estado = State.Subir;
-                }
-
-                
+                }*/
+      
                 break;
             }
             case State.Parado:
             {
                 ApplyGravity();
                 controller.Move(new Vector3(0,0,0));
-                if (doorScript.fresta == false)
+                /*if (doorScript.fresta == false)
                 {
                     estado = State.Normal;
-                }
+                }*/
                 break;
             }
             case State.Subir:
@@ -118,11 +117,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     controller.Move(Vector3.down * ladderspeed * Time.deltaTime);
                 }
-                if (ladderScript.range == false)
+                /*if (ladderScript.range == false)
                 {
                     controller.Move(frontDirection * (ladderspeed * 200.0f) * Time.deltaTime);
                     estado = State.Normal;
-                }
+                }*/
                 break;
             }
         }
@@ -158,6 +157,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+    /*
     void Lanterna(GameObject luze)
     {
         Rigidbody lanternBody = luze.GetComponent<Rigidbody>();
@@ -187,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
                 return;
             }
         }
-    }
+    }*/
 
  
 }
