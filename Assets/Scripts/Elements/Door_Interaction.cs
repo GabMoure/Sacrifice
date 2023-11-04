@@ -10,6 +10,7 @@ public class Door_Interaction : MonoBehaviour, IInteractable
     private void Awake()
     {
         isOpen = false;
+
     }
     public void Doorchange()
     {   

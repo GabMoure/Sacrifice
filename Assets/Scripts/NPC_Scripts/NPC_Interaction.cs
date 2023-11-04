@@ -7,10 +7,19 @@ using TMPro;
 public class NPC_Interaction : MonoBehaviour, IInteractable
 {
     private int c;
+
+    [Header ("nome")]
+    public int nome;
+    public string name;
+    string[] nameArray = {"Carolis", "Kaio"};
+
     [Header("Falas")]
     [SerializeField] TextMeshProUGUI chattext;
     [SerializeField] GameObject Ui;
     [SerializeField] List<string> fala;
+
+    [Header("Quests")]
+    [SerializeField] Quest_Giver quest_Giver;
 
    /* private int currentIndex;
     private WaitForSeconds Delay;
@@ -21,6 +30,7 @@ public class NPC_Interaction : MonoBehaviour, IInteractable
     private void Awake()
     {
         c = 0;
+        name = nameArray[nome];
     }
     public void Interacion(Transform interactor)
     {
@@ -35,6 +45,10 @@ public class NPC_Interaction : MonoBehaviour, IInteractable
             c = 0;
             Ui.SetActive(false);
             chattext.text = null;
+            if (nome == quest_Giver.names)
+            {
+                quest_Giver.n++;
+            }            
         }
     }
 }

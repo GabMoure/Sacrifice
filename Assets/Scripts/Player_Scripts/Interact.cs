@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
+    public bool inRange;
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -19,15 +20,30 @@ public class Interact : MonoBehaviour
                 }
             }
         }
+        //fresta// 
+        /*
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //checar objetos baseado em colliders, identificar qual é um npc
+            float radius = 4f;
+            Collider[] colliderArray = Physics.OverlapSphere(transform.position, radius);
+            foreach(Collider collider in colliderArray)
+            {
+                if(collider.TryGetComponent(out IInteractable interactions))
+                {
+                    interactions.Interacion(transform);
+                }
+            }
+        }*/
     }
 
-    public NPC_Interaction GetInteractable()
+    public IInteractable GetInteractable()
     {
         float radius = 4f;
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, radius);
         foreach(Collider collider in colliderArray)
         {
-            if(collider.TryGetComponent(out NPC_Interaction npcinteraction))
+            if(collider.TryGetComponent(out IInteractable npcinteraction))
             {
                 return npcinteraction;
             }
