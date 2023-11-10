@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 52219213}
   - component: {fileID: 52219212}
   - component: {fileID: 52219211}
-  - component: {fileID: 52219210}
+  - component: {fileID: 52219216}
   m_Layer: 0
   m_Name: NPC (1)
   m_TagString: Untagged
@@ -249,26 +249,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &52219210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52219209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f046fad895f38e45a103e4fca61a010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nome: 1
-  chattext: {fileID: 1661681915}
-  Ui: {fileID: 79687951}
-  fala:
-  - Oi chapa
-  - "Meu nome \xE9 Kamigs"
-  - Eu estouro dragoes no Skyrim
-  quest_Giver: {fileID: 0}
 --- !u!54 &52219211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -384,6 +364,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &52219216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52219209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f046fad895f38e45a103e4fca61a010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chattext: {fileID: 1661681915}
+  Ui: {fileID: 79687951}
+  fala:
+  - beleza beleza
+  - ok
+  quest_Script: {fileID: 452945096}
 --- !u!1 &79687951
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,6 +670,126 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7414509850709746518, guid: 8e9d995a025170f4fad9e31374c2d541, type: 3}
+--- !u!1 &347362518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 347362522}
+  - component: {fileID: 347362521}
+  - component: {fileID: 347362520}
+  - component: {fileID: 347362519}
+  - component: {fileID: 347362523}
+  m_Layer: 0
+  m_Name: Completed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &347362519
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347362518}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &347362520
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347362518}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &347362521
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347362518}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &347362522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347362518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 376.62, y: 1.76, z: 345.94}
+  m_LocalScale: {x: 6.5358, y: 3.923, z: 11.444}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &347362523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347362518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c3d88c96dc8604e846fce3c845d644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest_Script: {fileID: 452945096}
+  Trigger: {fileID: 347362518}
 --- !u!1 &438078320
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +807,7 @@ GameObject:
   - component: {fileID: 438078326}
   - component: {fileID: 438078329}
   - component: {fileID: 438078330}
+  - component: {fileID: 438078331}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -777,7 +896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438078320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 370.32, y: 3.15, z: 348.18}
+  m_LocalPosition: {x: 370.319, y: 3.15, z: 348.18}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -893,6 +1012,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 1626815384}
   interact: {fileID: 438078329}
+--- !u!136 &438078331
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438078320}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.78
+  m_Height: 2.58
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &440990214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4219030792231520041, guid: 8e9d995a025170f4fad9e31374c2d541, type: 3}
@@ -929,7 +1071,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 452945095}
-  - component: {fileID: 452945094}
   - component: {fileID: 452945096}
   m_Layer: 0
   m_Name: QuestContainer
@@ -938,25 +1079,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &452945094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452945093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d5eb77cb6ede35429affdad720e56f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest: {fileID: 1083264248}
-  container: {fileID: 1658908827}
-  text:
-  - Fale com Carolis.
-  - Fale com Kaio.
-  - Volte para o quarto.
-  isActive: 0
 --- !u!4 &452945095
 Transform:
   m_ObjectHideFlags: 0
@@ -981,11 +1103,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 452945093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1af87ec944c6648aac4addb22077fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d5eb77cb6ede35429affdad720e56f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  n: 0
-  names: 
+  quest: {fileID: 1083264248}
+  container: {fileID: 1658908827}
+  place: 0
+  convo: 0
+  item: 0
+  text:
+  - Fale com Carolis.
+  - Fale com Kaio.
+  - Volte para o quarto.
+  Localnumbers: 02000000
+  QuestOrder: 0
 --- !u!1 &466204546 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9217234437682292332, guid: 8e9d995a025170f4fad9e31374c2d541, type: 3}
@@ -1827,7 +1958,7 @@ GameObject:
   - component: {fileID: 1216949895}
   - component: {fileID: 1216949894}
   - component: {fileID: 1216949893}
-  - component: {fileID: 1216949892}
+  - component: {fileID: 1216949898}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -1835,26 +1966,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1216949892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216949891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f046fad895f38e45a103e4fca61a010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nome: 0
-  chattext: {fileID: 1661681915}
-  Ui: {fileID: 79687951}
-  fala:
-  - "Ol\xE1, tudo bem?"
-  - "Meu nome \xE9 Ana Carolis"
-  - Eu jogo roblox todo dia
-  quest_Giver: {fileID: 452945096}
 --- !u!54 &1216949893
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1963,13 +2074,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216949891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 387.03, y: 3.6, z: 343.5}
+  m_LocalPosition: {x: 387.03, y: 3.6, z: 328.53}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1216949898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216949891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f046fad895f38e45a103e4fca61a010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chattext: {fileID: 1661681915}
+  Ui: {fileID: 79687951}
+  fala:
+  - FAAAALA
+  - beleza
+  quest_Script: {fileID: 452945096}
 --- !u!1 &1270199129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4906838889796845047, guid: 8e9d995a025170f4fad9e31374c2d541, type: 3}
@@ -2196,7 +2325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38de6d2d4745855448711eaa862fc31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraspd: 100
+  cameraspd: 150
   player: {fileID: 438078324}
 --- !u!1 &1447252711 stripped
 GameObject:
@@ -2931,7 +3060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e9d995a025170f4fad9e31374c2d541, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e9d995a025170f4fad9e31374c2d541, type: 3}
       propertyPath: m_LocalPosition.z

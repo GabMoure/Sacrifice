@@ -8,10 +8,7 @@ public class NPC_Interaction : MonoBehaviour, IInteractable
 {
     private int c;
 
-    [Header ("nome")]
-    public int nome;
-    public string name;
-    string[] nameArray = {"Carolis", "Kaio"};
+    string[] nameArray = {"Carolis", "Kaio", ""};
 
     [Header("Falas")]
     [SerializeField] TextMeshProUGUI chattext;
@@ -19,7 +16,7 @@ public class NPC_Interaction : MonoBehaviour, IInteractable
     [SerializeField] List<string> fala;
 
     [Header("Quests")]
-    [SerializeField] Quest_Giver quest_Giver;
+    [SerializeField] Quest_Script quest_Script;
 
    /* private int currentIndex;
     private WaitForSeconds Delay;
@@ -30,7 +27,6 @@ public class NPC_Interaction : MonoBehaviour, IInteractable
     private void Awake()
     {
         c = 0;
-        name = nameArray[nome];
     }
     public void Interacion(Transform interactor)
     {
@@ -45,10 +41,7 @@ public class NPC_Interaction : MonoBehaviour, IInteractable
             c = 0;
             Ui.SetActive(false);
             chattext.text = null;
-            if (nome == quest_Giver.names)
-            {
-                quest_Giver.n++;
-            }            
+            quest_Script.QuestDone();
         }
     }
 }
