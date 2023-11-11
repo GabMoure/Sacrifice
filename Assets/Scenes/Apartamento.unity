@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f046fad895f38e45a103e4fca61a010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  number: 1
   chattext: {fileID: 1661681915}
   Ui: {fileID: 79687951}
   fala:
@@ -593,6 +594,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1232aea5a6e96e24787d602fe822adf8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 737965560}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1232aea5a6e96e24787d602fe822adf8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 737965563}
   m_SourcePrefab: {fileID: 100100000, guid: 1232aea5a6e96e24787d602fe822adf8, type: 3}
 --- !u!1 &303654972 stripped
 GameObject:
@@ -788,6 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c3d88c96dc8604e846fce3c845d644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  number: 2
   quest_Script: {fileID: 452945096}
   Trigger: {fileID: 347362518}
 --- !u!1 &438078320
@@ -1346,6 +1351,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1797959263}
+  isOpen: 0
+  fresta: 0
+--- !u!65 &737965563
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737965555}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: -0.32, y: 0.04, z: 0.020000005}
+  m_Center: {x: 0.000038420796, y: 0.00000011920929, z: -9.313223e-10}
 --- !u!1 &758538440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,6 +2121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f046fad895f38e45a103e4fca61a010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  number: 0
   chattext: {fileID: 1661681915}
   Ui: {fileID: 79687951}
   fala:

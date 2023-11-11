@@ -21,8 +21,7 @@ public class Interact : MonoBehaviour
             }
         }
         //fresta// 
-        /*
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             //checar objetos baseado em colliders, identificar qual é um npc
             float radius = 4f;
@@ -31,10 +30,10 @@ public class Interact : MonoBehaviour
             {
                 if(collider.TryGetComponent(out IInteractable interactions))
                 {
-                    interactions.Interacion(transform);
+                    interactions.Interacion2(transform);
                 }
             }
-        }*/
+        }
     }
 
     public IInteractable GetInteractable()

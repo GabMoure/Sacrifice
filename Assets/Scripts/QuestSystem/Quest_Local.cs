@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Quest_Local : MonoBehaviour
 {
-    
+    public int number;
     public Quest_Script quest_Script;
    //public GameObject Objective;
    public GameObject Trigger;
@@ -13,8 +13,11 @@ public class Quest_Local : MonoBehaviour
    {
         if (other.CompareTag("Player") && quest_Script.place == true)
         {
-            quest_Script.QuestDone();
-            Trigger.SetActive(false);
+            if (number == quest_Script.QuestOrder)
+            {
+                quest_Script.QuestDone();
+                Trigger.SetActive(false);
+            }
         }
    }
 

@@ -5,11 +5,17 @@ using UnityEngine;
 public class Door_Interaction : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator animator;
-    private bool isOpen;
+    private bool inRange;
+    [SerializeField] private bool isOpen;
+    [SerializeField] private bool fresta;
 
     private void Awake()
     {
         isOpen = false;
+        fresta = false;
+    }
+    private void Update()
+    {
 
     }
     public void Doorchange()

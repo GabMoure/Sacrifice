@@ -6,6 +6,7 @@ using TMPro;
 
 public class NPC_Interaction : MonoBehaviour, IInteractable
 {
+    public int number;
     private int c;
 
     string[] nameArray = {"Carolis", "Kaio", ""};
@@ -41,7 +42,11 @@ public class NPC_Interaction : MonoBehaviour, IInteractable
             c = 0;
             Ui.SetActive(false);
             chattext.text = null;
-            quest_Script.QuestDone();
+            if (quest_Script.QuestOrder == number)
+            {
+                quest_Script.QuestDone();
+            }
         }
     }
+
 }
