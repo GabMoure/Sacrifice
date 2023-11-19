@@ -5,25 +5,37 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //public ItemScript itemScr;
+    [Header("Itens")]
     [SerializeField] private Transform player;
     [SerializeField] private Transform Hand;
+    [SerializeField] private MeshRenderer playerrender;
     public CharacterController controller;
     //public LadderScript ladderScript;
-    //public DoorScript doorScript;
+    public Door_Interaction door_interaction;
     public Camera playerCamera;
-    //
+
+
+    [Header("run & crouch")]
+    //run
     public float speed = 5.0f;
     public float initial_speed;
     public float runspd = 10.0f;
 
     private bool isRunning;
-    //
+    //crouch
+    [SerializeField] float crouchHeight = 1f;
+    [SerializeField] Vector3 standingHeight;
+    float crouchspeed = 2.5f;
+
+
     //gravidade
+    [Header("Gravity")]
     public float gravity = -1.0f;
     [SerializeField] private float gravityMultiplier = 3.0f;
     [SerializeField] float velocity;
 
     //headbobbing
+    [Header("headbobbing")]
     [SerializeField] float WalkBobSpeed = 14.0f;
     [SerializeField] float WalkBobAmount = 0.05f;
     [SerializeField] float SprintBobSpeed = 18.0f;
@@ -39,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Normal,
         Parado,
+        Agachar,
         Subir,
     }
     public State estado;
@@ -49,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         defaultYpos = playerCamera.transform.localPosition.y;
         isRunning = false;
         current_position = transform.position;
+        standingHeight = player.localScale;
         /*itemScr = GetComponent<ItemScript>();*/
     }
     void Update()
@@ -60,14 +74,12 @@ public class PlayerMovement : MonoBehaviour
             case State.Normal:
             {
                 ApplyGravity();
+                Movement();
                 /*if (itemScr.ItemList.Contains(itemScr.luz))
                 {
                     Lanterna(itemScr.luz.gameObject);
                 }*/
-                float moveX = Input.GetAxis("Horizontal");
-                float moveZ = Input.GetAxis("Vertical");
-                Vector3 dir = moveX * transform.right + moveZ * transform.forward;
-                HandleHeadBob(dir);
+
                 ///
                 if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
@@ -80,12 +92,19 @@ public class PlayerMovement : MonoBehaviour
                     isRunning = false;
                 }
                 ///
-                controller.Move(dir * speed * Time.deltaTime);
-                ///
-                /*if (doorScript.fresta == true)
+
+                //agachar
+                if (Input.GetKeyDown(KeyCode.LeftControl))
+                {
+                    estado = State.Agachar;
+                }
+
+                //parar com a porta
+                if (door_interaction.fresta == true)
                 {
                     estado = State.Parado;
                 }
+                /*
                 //escada
                 if (ladderScript.range == true)
                 {
@@ -98,10 +117,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 ApplyGravity();
                 controller.Move(new Vector3(0,0,0));
-                /*if (doorScript.fresta == false)
+                if (door_interaction.fresta == false)
                 {
                     estado = State.Normal;
-                }*/
+                }
                 break;
             }
             case State.Subir:
@@ -122,6 +141,13 @@ public class PlayerMovement : MonoBehaviour
                     controller.Move(frontDirection * (ladderspeed * 200.0f) * Time.deltaTime);
                     estado = State.Normal;
                 }*/
+                break;
+            }
+            case State.Agachar:
+            {
+                ApplyGravity();
+                Movement();
+                Crouch();
                 break;
             }
         }
@@ -156,6 +182,25 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+    }
+    void Movement()
+    {
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
+        Vector3 dir = moveX * transform.right + moveZ * transform.forward;
+        HandleHeadBob(dir);
+        controller.Move(dir * speed * Time.deltaTime);
+    }
+    void Crouch()
+    {
+        speed = crouchspeed;
+        player.localScale = new Vector3(2,crouchHeight,2);
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {   
+            speed = initial_speed;
+            player.localScale = standingHeight;
+            estado = State.Normal;
+        }
     }
     /*
     void Lanterna(GameObject luze)
