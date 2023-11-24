@@ -7,18 +7,19 @@ public class Door_Interaction : MonoBehaviour
     [SerializeField] private GameObject UI, UI2;
     [SerializeField] private bool isOpen;
     private Animator animator;
-    [SerializeField] FrestaScript frestaScript;
     public bool fresta;
+    private bool inRange;
     private bool interact;
     private void Awake()
     {
         isOpen = false;
         fresta = false;
+        inRange = false;
         animator = transform.root.GetComponent<Animator>();
     }
     private void Update()
     {
-        if (frestaScript.inRange == true)
+        if (inRange == true)
         {
             Activate();
             if (Input.GetKeyDown(KeyCode.F))
@@ -38,6 +39,20 @@ public class Door_Interaction : MonoBehaviour
             {
                 Deactivate();
             }
+        }
+    }
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            inRange = true;
+        }
+    }
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            inRange = false;
         }
     }
     void Activate()
