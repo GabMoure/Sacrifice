@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     //public ItemScript itemScr;
     [Header("Itens")]
     [SerializeField] private Transform player;
-    [SerializeField] private Transform Hand;
+    [SerializeField] public Transform Hand;
     [SerializeField] private MeshRenderer playerrender;
     public CharacterController controller;
     //public LadderScript ladderScript;

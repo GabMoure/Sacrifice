@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     [SerializeField] GameObject textobject;
+    
     enum doorKey{
         Trancada,
         Destrancada,
@@ -17,8 +18,9 @@ public class DoorScript : MonoBehaviour
    public bool inRange = false;
     //componentes
     public Animator animator;
-
-    [SerializeField] ItemScript itemScript;
+    /*
+    && itemScript.ItemList.Contains(itemScript.chave)
+    [SerializeField] ItemScript itemScript;*/
 
     void Start()
     {
@@ -35,11 +37,11 @@ public class DoorScript : MonoBehaviour
             {
                 case doorKey.Trancada:
                 {
-                    if (Input.GetKeyDown(KeyCode.E) && itemScript.ItemList.Contains(itemScript.chave))
+                    if (Input.GetKeyDown(KeyCode.E) )
                     {
                         Debug.Log("Destrancou");
-                        itemScript.ItemList.Remove(itemScript.chave);
-                        itemScript.chave = null;   
+                        //itemScript.ItemList.Remove(itemScript.chave);
+                       // itemScript.chave = null;   
                         Chave = doorKey.Destrancada;
                     }
                     break;
