@@ -25,8 +25,11 @@ public class EnemyScript : MonoBehaviour
     }
     void Update()
     {
+        Vector3
         if (walking == true)
         {
+            anim.ResetTrigger("idle");
+            anim.SetTrigger("walk");
             Direction = currentDestination.position;
             ai.destination = Direction;
             ai.speed = Walkspeed;
@@ -37,6 +40,7 @@ public class EnemyScript : MonoBehaviour
                 {
                     randNum = Random.Range(0, DestinationAmount);
                     currentDestination = destinations[randNum];
+
                 }
                 if (randNum == 1)
                 {
@@ -46,16 +50,19 @@ public class EnemyScript : MonoBehaviour
                     walking = false;
                 }
             }
+            ai.updateRotation = true;
         }
     }
     IEnumerator StayIdle()
     {
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
+        ai.updateRotation = false;
         yield return new WaitForSeconds(IdleTime);
         randNum = Random.Range(0, DestinationAmount);
         currentDestination = destinations[randNum];
         anim.ResetTrigger("idle");
         anim.SetTrigger("walk");
         walking = true;
+        ai.updateRotation = true;
     }
 }
