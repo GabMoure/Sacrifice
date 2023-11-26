@@ -8,6 +8,7 @@ public class Door_Interaction : MonoBehaviour
     [SerializeField] private bool isOpen;
     [SerializeField] private int IDrequired;
     [SerializeField] Player_Inventory player_Inventory;
+    [SerializeField] PlayerMovement player_movement;
     enum estado
     {
         open,
@@ -16,6 +17,7 @@ public class Door_Interaction : MonoBehaviour
     private Animator animator;
     public bool fresta;
     private bool inRange;
+    public bool gustavo;
     private bool interact;
     private estado state;
     private void Awake()
@@ -40,7 +42,7 @@ public class Door_Interaction : MonoBehaviour
     {
         if (inRange == true)
         {
-            Activate();
+            Activate();    
         }
         else
         {
@@ -48,15 +50,27 @@ public class Door_Interaction : MonoBehaviour
             {
                 Deactivate();
             }
+
         }
         switch(state)
         {
             case estado.open:
             {  
-                if (inRange == true && Input.GetKeyDown(KeyCode.F))
+                if (inRange == true || gustavo == true)
                 {
-                    fresta = !fresta;
-                    animator.SetBool("Fresta", fresta);
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        fresta = !fresta;
+                        animator.SetBool("Fresta", fresta);
+                        if (fresta == true)
+                        {
+                            gustavo = true;
+                        }
+                        else
+                        {
+                            gustavo = false;
+                        }
+                    }
                 }
                 if (inRange == true && Input.GetKeyDown(KeyCode.E))
                 {
@@ -80,6 +94,7 @@ public class Door_Interaction : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             inRange = true;
+            player_movement.door_interaction = GetComponent<Door_Interaction>();
         }
     }
     void OnTriggerExit(Collider collider)
@@ -87,6 +102,7 @@ public class Door_Interaction : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             inRange = false;
+            player_movement.door_interaction = null;
         }
     }
     void Activate()
