@@ -5,8 +5,8 @@ using UnityEngine;
 public class Item_Script : MonoBehaviour
 {
     [SerializeField] Item item;
-    string itemname;
-    int id;
+    public string itemname;
+    public int id;
     void OnEnable()
     {
         name = item.itemname;

@@ -6,15 +6,17 @@ public class Player_Inventory : MonoBehaviour
 {
     [SerializeField] Transform playerHand;
     [SerializeField] List<GameObject> inventory;
+    [SerializeField] public List<int> itemsID;
     [SerializeField] GameObject Ui;
     [SerializeField] Camera cam;
     private Ray ray;
-    private float raydistance = 20.0f;
+    private float raydistance = 5.0f;
     private bool onHand;
 
     void Start()
     {
         inventory = new List<GameObject>();
+        itemsID = new List<int>();
     }
 
     void Update()
@@ -32,14 +34,16 @@ public class Player_Inventory : MonoBehaviour
                     Grab(hit.collider.gameObject);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Q) && onHand == true)
-            {
-                var dropitem = playerHand.GetChild(0);
-                Collider dropitemcollider = dropitem.GetComponent<Collider>();
-                Rigidbody dropitembody = dropitem.GetComponent<Rigidbody>();
-                inventory.RemoveAt(0);
-                Drop(dropitemcollider, dropitembody);
-            }
+        }
+        if (Input.GetKeyDown(KeyCode.Q) && onHand == true)
+        {
+            var dropitem = playerHand.GetChild(0);
+            var dropitemscript = dropitem.GetComponent<Item_Script>();
+            Collider dropitemcollider = dropitem.GetComponent<Collider>();
+            Rigidbody dropitembody = dropitem.GetComponent<Rigidbody>();
+            inventory.Remove(dropitem.gameObject);
+            itemsID.Remove(dropitemscript.id);
+            Drop(dropitemcollider, dropitembody);
         }
     }
     void Grab(GameObject item)
@@ -47,11 +51,12 @@ public class Player_Inventory : MonoBehaviour
         onHand = true;
         inventory.Add(item);
         Item_Script itemscript = item.GetComponent<Item_Script>();
-        Transform itempos = item.transform;
-        Collider itemcollider = item.GetComponent<Collider>();
-        Rigidbody itembody = item.GetComponent<Rigidbody>();
+        itemsID.Add(itemscript.id);
         if (itemscript.name == "lantern")
         {
+            Transform itempos = item.transform;
+            Collider itemcollider = item.GetComponent<Collider>();
+            Rigidbody itembody = item.GetComponent<Rigidbody>();
             itempos.parent = playerHand;
             itemcollider.enabled = false;
             itembody.useGravity = false;
@@ -60,6 +65,11 @@ public class Player_Inventory : MonoBehaviour
             itempos.rotation = cam.transform.rotation;
             //
             itembody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+        }
+
+        if (itemscript.name == "key")
+        {
+            item.SetActive(false);
         }
     }
     void Drop(Collider icollider, Rigidbody body)
