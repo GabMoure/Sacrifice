@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     //public ItemScript itemScr;
     [Header("Itens")]
     [SerializeField] private Transform player;
-    [SerializeField] public Transform Hand;
     [SerializeField] private MeshRenderer playerrender;
     public CharacterController controller;
     //public LadderScript ladderScript;
@@ -75,12 +74,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 ApplyGravity();
                 Movement();
-                /*if (itemScr.ItemList.Contains(itemScr.luz))
-                {
-                    Lanterna(itemScr.luz.gameObject);
-                }*/
-
-                ///
                 if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
                     speed = runspd; 
@@ -202,37 +195,4 @@ public class PlayerMovement : MonoBehaviour
             estado = State.Normal;
         }
     }
-    /*
-    void Lanterna(GameObject luze)
-    {
-        Rigidbody lanternBody = luze.GetComponent<Rigidbody>();
-        BoxCollider laterncollider = luze.GetComponent<BoxCollider>();
-        if (itemScr.ItemList.Contains(luze))
-        {
-            
-            //desativando componentes
-            laterncollider.enabled = false;
-            lanternBody.useGravity = false;
-
-            //colocando na mesma posição
-            luze.transform.position = Hand.position;
-            luze.transform.parent = Hand;
-            luze.transform.rotation = playerCamera.transform.rotation;
-            //droppar
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-   
-                Hand.DetachChildren();
-                laterncollider.enabled = true;
-                lanternBody.useGravity = true;
-                //
-                itemScr.ItemList.Remove(luze);
-                itemScr.luz = null;
-                //          
-                return;
-            }
-        }
-    }*/
-
- 
 }

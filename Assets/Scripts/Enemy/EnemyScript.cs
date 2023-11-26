@@ -31,14 +31,12 @@ public class EnemyScript : MonoBehaviour
     {
         Vector3 towardsDirection = (Player.position - transform.position).normalized;
         RaycastHit hit;
-        Debug.DrawRay(transform.position, towardsDirection * 15);
         if (Physics.Raycast(transform.position, towardsDirection, out hit, raycastDistance))
         {
             if (hit.collider.gameObject.tag == "Player")
             {
                 walking = false;
                 StopCoroutine(StayIdle());
-                StopCoroutine(ChaseRoutine());
                 StartCoroutine(ChaseRoutine());
                 //setting run trigger
                 anim.ResetTrigger("idle");
@@ -68,7 +66,6 @@ public class EnemyScript : MonoBehaviour
                     anim.ResetTrigger("walk");
                     anim.SetTrigger("idle");
                     StartCoroutine(StayIdle());
-                    walking = false;
                 }
             }
             ai.updateRotation = true;
@@ -86,6 +83,7 @@ public class EnemyScript : MonoBehaviour
     {
         IdleTime = Random.Range(minIdleTime, maxIdleTime);
         ai.updateRotation = false;
+        walking = false;
         yield return new WaitForSeconds(IdleTime);
         randNum = Random.Range(0, DestinationAmount);
         currentDestination = destinations[randNum];
