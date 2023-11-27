@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Quest_Local : MonoBehaviour
 {
     public int number;
+    public bool istp;
     public Quest_Script quest_Script;
    //public GameObject Objective;
    public GameObject Trigger;
@@ -16,7 +17,10 @@ public class Quest_Local : MonoBehaviour
             if (number == quest_Script.QuestOrder)
             {
                 quest_Script.QuestDone();
-                Trigger.SetActive(false);
+                if (istp == false)
+                {
+                    Trigger.SetActive(false);
+                }
             }
         }
    }

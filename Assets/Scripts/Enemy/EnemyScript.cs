@@ -18,7 +18,7 @@ public class EnemyScript : MonoBehaviour
     private Vector3 Direction;
     private int randNum, randNum2;
     private Transform currentDestination;
-    private bool walking, chasing;
+    public bool walking, chasing;
 
     void Start()
     {

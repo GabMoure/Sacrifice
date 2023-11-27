@@ -42,7 +42,7 @@ public class Door_Interaction : MonoBehaviour
     {
         if (inRange == true)
         {
-            Activate();    
+            Activate();  
         }
         else
         {
@@ -50,7 +50,6 @@ public class Door_Interaction : MonoBehaviour
             {
                 Deactivate();
             }
-
         }
         switch(state)
         {

@@ -7,11 +7,12 @@ public class Player_Inventory : MonoBehaviour
     [SerializeField] Transform playerHand;
     [SerializeField] List<GameObject> inventory;
     [SerializeField] public List<int> itemsID;
-    [SerializeField] GameObject Ui;
     [SerializeField] Camera cam;
     private Ray ray;
     private float raydistance = 5.0f;
     private bool onHand;
+    public bool isitem;
+    
 
     void Start()
     {
@@ -23,16 +24,19 @@ public class Player_Inventory : MonoBehaviour
     {
         ray = cam.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
         RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction);
         if(Physics.Raycast(ray, out hit, raydistance))
         {
             if (hit.collider.gameObject.tag == "Item")
             {
-                Ui.SetActive(true);
+                isitem = true;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Grab(hit.collider.gameObject);
                 }
+            }
+            else
+            {
+                isitem = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.Q) && onHand == true)

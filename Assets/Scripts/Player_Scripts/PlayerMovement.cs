@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
     public State estado;
     void Start()
     {
-        door_interaction = null;
         initial_speed = speed;
         estado = State.Normal;
         defaultYpos = playerCamera.transform.localPosition.y;

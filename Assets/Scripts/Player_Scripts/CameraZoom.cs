@@ -7,10 +7,10 @@ public class CameraZoom : MonoBehaviour
     int zoom = 20;
     int normal = 60;
     float smooth = 5.0f; 
-    public Door_Interaction door_interaction;
+    [SerializeField] PlayerMovement playerMovement;
     void Update()
     {
-        if (door_interaction.fresta == true)
+        if (playerMovement.door_interaction.fresta == true)
         {
             GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoom, smooth * Time.deltaTime);
         }
