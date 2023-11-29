@@ -1533,6 +1533,7 @@ GameObject:
   - component: {fileID: 347362520}
   - component: {fileID: 347362519}
   - component: {fileID: 347362523}
+  - component: {fileID: 347362524}
   m_Layer: 0
   m_Name: Completed
   m_TagString: Untagged
@@ -1639,8 +1640,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 2
+  istp: 1
   quest_Script: {fileID: 452945096}
   Trigger: {fileID: 347362518}
+--- !u!114 &347362524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347362518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcb905532132944eaacbf491077ffe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complete: {fileID: 347362522}
+  enemytransform: {fileID: 1476843802}
+  enemyscript: {fileID: 1476843805}
+  done: 0
 --- !u!1001 &350591056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4470,7 +4488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216949891}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.72, y: 0.45900345, z: 8.7404785}
+  m_LocalPosition: {x: -12.72, y: 0.45900345, z: -8.45}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5248,6 +5266,8 @@ MonoBehaviour:
   Player: {fileID: 438078324}
   DestinationAmount: 4
   PlayerCamera: {fileID: 1303834830}
+  walking: 0
+  chasing: 0
 --- !u!1001 &1503207654
 PrefabInstance:
   m_ObjectHideFlags: 0
