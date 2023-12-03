@@ -1655,10 +1655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fcb905532132944eaacbf491077ffe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  complete: {fileID: 347362522}
-  enemytransform: {fileID: 1476843802}
-  enemyscript: {fileID: 1476843805}
-  done: 0
 --- !u!1001 &350591056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5066,9 +5062,9 @@ GameObject:
   - component: {fileID: 1476843800}
   - component: {fileID: 1476843799}
   - component: {fileID: 1476843798}
-  - component: {fileID: 1476843805}
   - component: {fileID: 1476843804}
   - component: {fileID: 1476843803}
+  - component: {fileID: 1476843805}
   m_Layer: 0
   m_Name: PROT monstro
   m_TagString: Untagged
@@ -5248,21 +5244,21 @@ MonoBehaviour:
   ai: {fileID: 1476843804}
   destinations:
   - {fileID: 391552154}
-  - {fileID: 659973341}
   - {fileID: 2129433074}
   - {fileID: 354405937}
+  - {fileID: 659973341}
   CanonEvents: []
   anim: {fileID: 1476843803}
   Walkspeed: 5
   Runspeed: 10
-  minIdleTime: 10
-  maxIdleTime: 20
+  minIdleTime: 15
+  maxIdleTime: 25
   IdleTime: 0
-  raycastDistance: 20
-  minChaseTime: 5
-  maxChaseTime: 10
+  raycastDistance: 15
+  minChaseTime: 15
+  maxChaseTime: 25
   ChaseTime: 0
-  jumpscareTime: 5
+  jumpscareTime: 6
   Player: {fileID: 438078324}
   DestinationAmount: 4
   PlayerCamera: {fileID: 1303834830}
