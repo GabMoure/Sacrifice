@@ -8,6 +8,7 @@ public class Player_Inventory : MonoBehaviour
     [SerializeField] List<GameObject> inventory;
     [SerializeField] public List<int> itemsID;
     [SerializeField] Camera cam;
+    [SerializeField] InteractableTextScript InteractableTextScript;
     private Ray ray;
     private float raydistance = 5.0f;
     private bool onHand;
@@ -29,6 +30,7 @@ public class Player_Inventory : MonoBehaviour
             if (hit.collider.gameObject.tag == "Item")
             {
                 isitem = true;
+                InteractableTextScript.textobject = hit.collider.gameObject;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Grab(hit.collider.gameObject);

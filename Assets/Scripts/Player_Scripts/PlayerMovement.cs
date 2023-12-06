@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private MeshRenderer playerrender;
     public CharacterController controller;
     //public LadderScript ladderScript;
-    public Door_Interaction door_interaction;
+    [HideInInspector] public Door_Interaction door_interaction;
     public Camera playerCamera;
 
 

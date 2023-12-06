@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InteractableTextScript : MonoBehaviour
 {
-    [SerializeField] private GameObject container;
+    [SerializeField] public TextMeshProUGUI container;
     [SerializeField] private Player_Inventory player_Inventory;
     [SerializeField] private Interact interact;
+    [HideInInspector] public GameObject textobject;
+    
     private void Update()
     {
         if (interact.GetInteractable() != null || player_Inventory.isitem == true)
@@ -20,10 +23,13 @@ public class InteractableTextScript : MonoBehaviour
     }
     private void Show()
     {
-        container.SetActive(true);
+        Item_Script itemscript = textobject.GetComponent<Item_Script>();
+        container.text = itemscript.texto;
+
     }
     private void Hide()
     {
-        container.SetActive(false);
+        container.text = "";
+        textobject = null;
     }
 }

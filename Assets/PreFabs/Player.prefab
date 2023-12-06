@@ -41,7 +41,7 @@ Transform:
   - {fileID: 4323488778883057181}
   - {fileID: 5176788399896738593}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1733745187116744446
 MeshFilter:
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1890318283289307838}
-  playerrender: {fileID: 0}
+  playerrender: {fileID: 8364909252599239800}
   controller: {fileID: 5741123930944431372}
   door_interaction: {fileID: 0}
   playerCamera: {fileID: 5672602424420969942}
@@ -226,6 +226,7 @@ MonoBehaviour:
   container: {fileID: 0}
   player_Inventory: {fileID: 7597676908428004087}
   interact: {fileID: 338178514475791412}
+  textobject: {fileID: 0}
 --- !u!136 &7096216304125718169
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -265,6 +266,7 @@ MonoBehaviour:
   inventory: []
   itemsID: 
   cam: {fileID: 5672602424420969942}
+  InteractableTextScript: {fileID: 6450970059618686981}
   isitem: 0
 --- !u!1 &2835193302280044608
 GameObject:

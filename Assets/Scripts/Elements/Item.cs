@@ -7,4 +7,5 @@ public class Item : ScriptableObject
 {
     public int id;
     public string itemname;
+    public string text;
 }

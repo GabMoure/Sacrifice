@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door_Interaction : MonoBehaviour
 {
-    [SerializeField] private GameObject UI, UI2;
+    [SerializeField] private InteractableTextScript interactableTextScript;
     [SerializeField] private bool isOpen;
     [SerializeField] private int IDrequired;
     [SerializeField] Player_Inventory player_Inventory;
@@ -20,6 +20,9 @@ public class Door_Interaction : MonoBehaviour
     public bool gustavo;
     private bool interact;
     private estado state;
+    private string textoporta; 
+
+
     private void Awake()
     {
         isOpen = false;
@@ -55,6 +58,7 @@ public class Door_Interaction : MonoBehaviour
         {
             case estado.open:
             {  
+                textoporta = "(E para abrir) \n (F para espiar)";
                 if (inRange == true || gustavo == true)
                 {
                     if (Input.GetKeyDown(KeyCode.F))
@@ -80,6 +84,7 @@ public class Door_Interaction : MonoBehaviour
             }
             case estado.closed:
             {
+                textoporta = "A porta está trancada. Deve haver uma forma de destrancar.";
                 if (player_Inventory.itemsID.Contains(IDrequired))
                 {
                     state = estado.open;
@@ -106,15 +111,13 @@ public class Door_Interaction : MonoBehaviour
     }
     void Activate()
     {
-        UI.SetActive(true);
-        UI2.SetActive(true);
         interact = false;
+        interactableTextScript.container.text = textoporta;
     }
     void Deactivate()
     {
-        UI.SetActive(false);
-        UI2.SetActive(false);
         interact = true;
+        interactableTextScript.container.text = "";
     }
     /*
     public void Doorchange()
