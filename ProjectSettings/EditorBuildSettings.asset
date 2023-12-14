@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/Menu.unity
     guid: 580cb40b6813cc446b82ff14aac748c6
   - enabled: 1
-    path: Assets/Scenes/Apartamento/Apartamento.unity
+    path: Assets/Scenes/Apartamento/Apartamento_1.unity
     guid: 9a1b27a549d4f6d4eb91803d02804994
+  - enabled: 1
+    path: Assets/Scenes/Apartamento/Apartamento_2.unity
+    guid: d66a4435b3a220e4ea41aef92cbb70d4
+  - enabled: 1
+    path: Assets/Scenes/Apartamento/Apartamento_1d.unity
+    guid: 502e25c7f28c8bd4a8bb7458ba0c7ce0
   m_configObjects: {}

@@ -3,33 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class InteractableTextScript : MonoBehaviour
+public class InteractableTextScript : ShowInteractionText
 {
-    [SerializeField] public TextMeshProUGUI container;
     [SerializeField] private Player_Inventory player_Inventory;
     [SerializeField] private Interact interact;
-    [HideInInspector] public GameObject textobject;
+    private string text = "(E)";
     
     private void Update()
     {
         if (interact.GetInteractable() != null || player_Inventory.isitem == true)
         {
-            Show();
+            base.Show(text);
         }
         else
         {
-            Hide();
+            base.Hide();
         }
     }
-    private void Show()
-    {
-        Item_Script itemscript = textobject.GetComponent<Item_Script>();
-        container.text = itemscript.texto;
-
-    }
-    private void Hide()
-    {
-        container.text = "";
-        textobject = null;
-    }
+   
 }

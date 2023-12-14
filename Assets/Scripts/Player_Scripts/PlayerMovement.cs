@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private MeshRenderer playerrender;
     public CharacterController controller;
     //public LadderScript ladderScript;
-    [HideInInspector] public Door_Interaction door_interaction;
     public Camera playerCamera;
 
 
@@ -92,11 +91,6 @@ public class PlayerMovement : MonoBehaviour
                     estado = State.Agachar;
                 }
 
-                //parar com a porta
-                if (door_interaction.fresta == true)
-                {
-                    estado = State.Parado;
-                }
                 /*
                 //escada
                 if (ladderScript.range == true)
@@ -110,10 +104,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 ApplyGravity();
                 controller.Move(new Vector3(0,0,0));
-                if (door_interaction.fresta == false)
-                {
-                    estado = State.Normal;
-                }
                 break;
             }
             case State.Subir:
@@ -194,5 +184,5 @@ public class PlayerMovement : MonoBehaviour
             player.localScale = standingHeight;
             estado = State.Normal;
         }
-    }
+    }    
 }

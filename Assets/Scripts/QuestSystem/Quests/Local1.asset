@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecfc9622ea2dbe44c89af09dfe20926e, type: 3}
-  m_Name: Key
+  m_Script: {fileID: 11500000, guid: 02b91d716389e084faa7111ba28985e4, type: 3}
+  m_Name: Local1
   m_EditorClassIdentifier: 
-  id: 2
-  itemname: key
-  text: Minha querida chave, minha maior compania.
+  questType: local
+  OrderID: 2
+  requiredItemID: 0

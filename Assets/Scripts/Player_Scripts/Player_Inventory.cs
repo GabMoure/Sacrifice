@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Inventory : MonoBehaviour
+public class Player_Inventory : ShowInteractionText
 {
     [SerializeField] Transform playerHand;
-    [SerializeField] List<GameObject> inventory;
+    [SerializeField] public List<GameObject> inventory;
     [SerializeField] public List<int> itemsID;
     [SerializeField] Camera cam;
-    [SerializeField] InteractableTextScript InteractableTextScript;
     private Ray ray;
     private float raydistance = 5.0f;
     private bool onHand;
     public bool isitem;
+    public bool isDoor;
     
 
     void Start()
@@ -30,7 +30,8 @@ public class Player_Inventory : MonoBehaviour
             if (hit.collider.gameObject.tag == "Item")
             {
                 isitem = true;
-                InteractableTextScript.textobject = hit.collider.gameObject;
+                Item_Script itemscript = hit.collider.gameObject.GetComponent<Item_Script>();
+                base.Show(itemscript.texto);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Grab(hit.collider.gameObject);
@@ -39,8 +40,11 @@ public class Player_Inventory : MonoBehaviour
             else
             {
                 isitem = false;
+                base.Hide();
             }
+
         }
+
         if (Input.GetKeyDown(KeyCode.Q) && onHand == true)
         {
             var dropitem = playerHand.GetChild(0);
@@ -77,6 +81,22 @@ public class Player_Inventory : MonoBehaviour
         {
             item.SetActive(false);
         }
+
+        if (itemscript.name == "puzzle")
+        {
+            if (item.tag == "Locker")
+            {
+                Gate_Puzzle gate_Puzzle = item.GetComponent<Gate_Puzzle>();
+                gate_Puzzle.enabled = true;
+                gate_Puzzle.Isinteract = true;
+            }
+        }
+
+        if (itemscript.name == "nada")
+        {
+            item.SetActive(false);
+        }
+
     }
     void Drop(Collider icollider, Rigidbody body)
     {

@@ -6,9 +6,10 @@ using TMPro;
 
 public class Quest_Script : MonoBehaviour
 {
+
     [Header("Type")]
     [SerializeField] private TextMeshProUGUI quest;
-    [SerializeField] private GameObject container;
+    [SerializeField] private GameObject container; 
 
     [Header("QuestTypes")]
     public bool place, convo, item;

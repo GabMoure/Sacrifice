@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 4158795948863706464}
   - component: {fileID: 5741123930944431372}
   - component: {fileID: 338178514475791412}
-  - component: {fileID: 6450970059618686981}
   - component: {fileID: 7096216304125718169}
   - component: {fileID: 7597676908428004087}
   m_Layer: 0
@@ -211,22 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0158003e62301ed46b723b1f47ea916e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6450970059618686981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505020019160445920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c25d00b9cbb8444cb49bdf035b736d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  container: {fileID: 0}
-  player_Inventory: {fileID: 7597676908428004087}
-  interact: {fileID: 338178514475791412}
-  textobject: {fileID: 0}
 --- !u!136 &7096216304125718169
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -262,11 +245,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a028e53103f13ad48b0082ebab188d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 0}
+  containertext: {fileID: 0}
   playerHand: {fileID: 5176788399896738593}
   inventory: []
   itemsID: 
   cam: {fileID: 5672602424420969942}
-  InteractableTextScript: {fileID: 6450970059618686981}
   isitem: 0
 --- !u!1 &2835193302280044608
 GameObject:

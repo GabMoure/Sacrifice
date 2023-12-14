@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class MenuManagement : MonoBehaviour
 {
-
     public void load()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // proxima cena na fila

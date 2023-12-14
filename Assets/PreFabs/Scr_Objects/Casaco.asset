@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecfc9622ea2dbe44c89af09dfe20926e, type: 3}
-  m_Name: Key
+  m_Name: Casaco
   m_EditorClassIdentifier: 
-  id: 2
-  itemname: key
-  text: Minha querida chave, minha maior compania.
+  id: 0
+  itemname: nada
+  text: um casaco
