@@ -79,7 +79,7 @@ public class Player_Inventory : ShowInteractionText
 
         if (itemscript.name == "key")
         {
-            item.SetActive(false);
+            StartCoroutine(LittleTime(item));
         }
 
         if (itemscript.name == "puzzle")
@@ -105,5 +105,10 @@ public class Player_Inventory : ShowInteractionText
         body.constraints = RigidbodyConstraints.None;
         playerHand.DetachChildren();
         onHand = false;
+    }
+    IEnumerator LittleTime(GameObject item)
+    {
+        yield return new WaitForSeconds(.3f);
+        item.SetActive(false);
     }
 }

@@ -185,4 +185,16 @@ public class PlayerMovement : MonoBehaviour
             estado = State.Normal;
         }
     }    
+
+    public void Switch(int n)
+    {
+        if (n == 0)
+        {
+            estado = State.Parado;
+        }
+        if (n == 1)
+        {
+            estado = State.Normal;    
+        }    
+    }
 }

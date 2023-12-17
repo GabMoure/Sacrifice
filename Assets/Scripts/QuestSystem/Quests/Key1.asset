@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questType: item
   OrderID: 0
-  requiredItemID: 0
+  requiredItemID: 2

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 338178514475791412}
   - component: {fileID: 7096216304125718169}
   - component: {fileID: 7597676908428004087}
+  - component: {fileID: 4875321964949236808}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -40,7 +41,7 @@ Transform:
   - {fileID: 4323488778883057181}
   - {fileID: 5176788399896738593}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1733745187116744446
 MeshFilter:
@@ -157,14 +158,13 @@ MonoBehaviour:
   player: {fileID: 1890318283289307838}
   playerrender: {fileID: 8364909252599239800}
   controller: {fileID: 5741123930944431372}
-  door_interaction: {fileID: 0}
   playerCamera: {fileID: 5672602424420969942}
   speed: 5
   initial_speed: 0
   runspd: 10
   crouchHeight: 1
   standingHeight: {x: 0, y: 0, z: 0}
-  gravity: -1
+  gravity: -10
   gravityMultiplier: 3
   velocity: 0
   WalkBobSpeed: 14
@@ -193,7 +193,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 100
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -252,6 +252,48 @@ MonoBehaviour:
   itemsID: 
   cam: {fileID: 5672602424420969942}
   isitem: 0
+  isDoor: 0
+--- !u!114 &4875321964949236808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505020019160445920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ad06635f971d4c8db9efd7b3018f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1890318283289307838}
+  playerrender: {fileID: 8364909252599239800}
+  controller: {fileID: 5741123930944431372}
+  playerCamera: {fileID: 0}
+  speed: 5
+  initial_speed: 0
+  runspd: 10
+  crouchHeight: 1
+  standingHeight: {x: 0, y: 0, z: 0}
+  gravity: -1
+  gravityMultiplier: 3
+  velocity: 0
+  WalkBobSpeed: 14
+  WalkBobAmount: 0.05
+  SprintBobSpeed: 18
+  SprintBobAmount: 0.11
+  estado: 0
+  container: {fileID: 0}
+  text: {fileID: 0}
+  c: 0
+  general: 0
+  eventlist: 00000000
+  dialoguelimit: 03000000
+  dialogues:
+  - Argh.. parece que tive mais um daqueles pesadelos estranhos..
+  - De qualquer forma, preciso ir trabalhar, acho que deixei a chave na mesa da cozinha.
+  - "Uff, parece que o dia de hoje est\xE1 mais frio que o normal, um casaco seria
+    um boa ideia."
+  questOrder: {fileID: 0}
 --- !u!1 &2835193302280044608
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,4 +445,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf78cd0cbd088a4fba0fcaf490157af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 4158795948863706464}
