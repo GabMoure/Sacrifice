@@ -22,6 +22,7 @@ public class Quest_Script1 : MonoBehaviour
 
     void Update()
     {
+        questOrder = FindObjectOfType<QuestOrder>();
         if (player_Inventory.itemsID.Contains(requiredItemID) && questType == "item")
         {
             if (OrderID == questOrder.generalOrder)

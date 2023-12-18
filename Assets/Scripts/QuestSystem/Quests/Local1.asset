@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Local1
   m_EditorClassIdentifier: 
   questType: local
-  OrderID: 2
+  OrderID: 1
   requiredItemID: 0

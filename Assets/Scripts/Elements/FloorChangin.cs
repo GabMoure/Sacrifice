@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FloorChangin : MonoBehaviour
 {
+    /*
     private bool hasEntered;
 
     void Start()
@@ -49,5 +50,13 @@ public class FloorChangin : MonoBehaviour
             SceneManager.LoadScene("Apartamento_1d");
         }
         hasEntered = false;
+   }*/
+   public string scenename;
+   void OnTriggerEnter(Collider collider)
+   {
+        if (collider.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(scenename);
+        }
    }
 }

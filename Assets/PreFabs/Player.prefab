@@ -41,7 +41,7 @@ Transform:
   - {fileID: 4323488778883057181}
   - {fileID: 5176788399896738593}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1733745187116744446
 MeshFilter:
@@ -265,34 +265,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01ad06635f971d4c8db9efd7b3018f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1890318283289307838}
-  playerrender: {fileID: 8364909252599239800}
-  controller: {fileID: 5741123930944431372}
-  playerCamera: {fileID: 0}
-  speed: 5
-  initial_speed: 0
-  runspd: 10
-  crouchHeight: 1
-  standingHeight: {x: 0, y: 0, z: 0}
-  gravity: -1
-  gravityMultiplier: 3
-  velocity: 0
-  WalkBobSpeed: 14
-  WalkBobAmount: 0.05
-  SprintBobSpeed: 18
-  SprintBobAmount: 0.11
-  estado: 0
   container: {fileID: 0}
   text: {fileID: 0}
   c: 0
   general: 0
-  eventlist: 00000000
-  dialoguelimit: 03000000
+  eventlist: 0000000003000000
+  dialoguelimit: 0300000004000000
   dialogues:
   - Argh.. parece que tive mais um daqueles pesadelos estranhos..
   - De qualquer forma, preciso ir trabalhar, acho que deixei a chave na mesa da cozinha.
   - "Uff, parece que o dia de hoje est\xE1 mais frio que o normal, um casaco seria
     um boa ideia."
+  - Tenho que atravessar a rua para chegar no trabalho.
   questOrder: {fileID: 0}
 --- !u!1 &2835193302280044608
 GameObject:
