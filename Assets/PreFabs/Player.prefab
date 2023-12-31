@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 2929420984103908746}
   - component: {fileID: 4158795948863706464}
   - component: {fileID: 5741123930944431372}
-  - component: {fileID: 338178514475791412}
-  - component: {fileID: 7096216304125718169}
   - component: {fileID: 7597676908428004087}
   - component: {fileID: 4875321964949236808}
+  - component: {fileID: 3402398956984531741}
+  - component: {fileID: 1740916137530100847}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -41,7 +41,7 @@ Transform:
   - {fileID: 4323488778883057181}
   - {fileID: 5176788399896738593}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1733745187116744446
 MeshFilter:
@@ -159,9 +159,11 @@ MonoBehaviour:
   playerrender: {fileID: 8364909252599239800}
   controller: {fileID: 5741123930944431372}
   playerCamera: {fileID: 5672602424420969942}
+  outsideStop: 0
   speed: 5
   initial_speed: 0
   runspd: 10
+  isStoped: 0
   crouchHeight: 1
   standingHeight: {x: 0, y: 0, z: 0}
   gravity: -10
@@ -198,41 +200,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &338178514475791412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505020019160445920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0158003e62301ed46b723b1f47ea916e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!136 &7096216304125718169
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505020019160445920}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7597676908428004087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,9 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a028e53103f13ad48b0082ebab188d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 0}
-  containertext: {fileID: 0}
   playerHand: {fileID: 5176788399896738593}
+  showinteraction: {fileID: 1740916137530100847}
   inventory: []
   itemsID: 
   cam: {fileID: 5672602424420969942}
@@ -265,19 +231,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01ad06635f971d4c8db9efd7b3018f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialoguelist:
+  - "Argh.. que dor de cabe\xE7a.."
+  - "Que estranho, tive um pesadelo, mas n\xE3o me lembro de como foi.."
+  - "Tamb\xE9m n\xE3o me lembro muito bem de como foi o dia de ontem. Ser\xE1 que
+    \xE9 o estresse do trabalho?"
+  - "Falando nisso, j\xE1 devo estar atrasado. Vou pegar meu casaco e ir trabalhar."
   container: {fileID: 0}
   text: {fileID: 0}
-  c: 0
-  general: 0
-  eventlist: 0000000003000000
-  dialoguelimit: 0300000004000000
-  dialogues:
-  - Argh.. parece que tive mais um daqueles pesadelos estranhos..
-  - De qualquer forma, preciso ir trabalhar, acho que deixei a chave na mesa da cozinha.
-  - "Uff, parece que o dia de hoje est\xE1 mais frio que o normal, um casaco seria
-    um boa ideia."
-  - Tenho que atravessar a rua para chegar no trabalho.
-  questOrder: {fileID: 0}
+--- !u!65 &3402398956984531741
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505020019160445920}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.8, y: 2.46, z: 2.37}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1740916137530100847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505020019160445920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62f6ec086f9b6246999f3dcacb411fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 0}
+  containertext: {fileID: 0}
 --- !u!1 &2835193302280044608
 GameObject:
   m_ObjectHideFlags: 0

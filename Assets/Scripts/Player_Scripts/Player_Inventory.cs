@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Inventory : ShowInteractionText
+public class Player_Inventory : MonoBehaviour
 {
     [SerializeField] Transform playerHand;
+    [SerializeField] ShowInteractionText showinteraction;
     [SerializeField] public List<GameObject> inventory;
     [SerializeField] public List<int> itemsID;
     [SerializeField] Camera cam;
+
     private Ray ray;
     private float raydistance = 5.0f;
     private bool onHand;
@@ -31,18 +33,32 @@ public class Player_Inventory : ShowInteractionText
             {
                 isitem = true;
                 Item_Script itemscript = hit.collider.gameObject.GetComponent<Item_Script>();
-                base.Show(itemscript.texto);
+                showinteraction.Show(itemscript.texto);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Grab(hit.collider.gameObject);
                 }
             }
-            else
+            else if(hit.collider.gameObject.tag == "Door")
             {
                 isitem = false;
-                base.Hide();
+                Door_Script door = hit.collider.gameObject.GetComponent<Door_Script>();
+                if (door.inRange == true)
+                {
+                    if (door.requiredID == 0)
+                    {
+                        showinteraction.Show(door.texto);
+                    }
+                    else
+                    {
+                        showinteraction.Show("Trancada.");    
+                    }
+                }
             }
-
+            else
+            {
+                showinteraction.Hide();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && onHand == true)

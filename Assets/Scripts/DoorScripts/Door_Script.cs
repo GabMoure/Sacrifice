@@ -2,95 +2,80 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door_Script : ShowInteractionText
+public class Door_Script : MonoBehaviour
 {
-    [SerializeField] Player_Inventory player_Inventory;
-    public float doorOpenAngle = -90f;
-    public float doorCloseAngle = 0f;
-    public float smoothTime = 8f;
-    public int keyID;
+    [SerializeField] Animator animator;
+    [SerializeField] public string texto;
+    [SerializeField] Player_Inventory playerinventory;
+    [SerializeField] ShowInteractionText showInteractionText;
+    public bool isOpen, inRange;
+    public int requiredID;
 
-    private string textoporta;
-    private bool isOpen = false;
-
-    public bool inRange;
-    private Quaternion targetRotation;
-
-    public enum State
+    public enum PortaEstado
     {
-        Open,
-        Closed,
+        Aberto,
+        Trancado
     }
-    public State state;
-
+    public PortaEstado state;
     void Start()
     {
-        if (keyID == 0)
+        if (requiredID == 0)
         {
-            state = State.Open;
+            state = PortaEstado.Aberto;
         }
         else
         {
-            state = State.Closed;
+            state = PortaEstado.Trancado;
         }
-        inRange = false;
-        targetRotation = transform.rotation;
     }
-
     void Update()
     {
         switch(state)
         {
-            case State.Open:
+            case PortaEstado.Aberto:
             {
-                textoporta = "(E para Abrir)";
                 if (inRange == true)
                 {
-                    base.Show(textoporta);
-                    if (Input.GetKeyDown(KeyCode.E))
+
+                    if (Input.GetKeyDown(KeyCode.E))  
                     {
                         ToggleDoor();
-                    }
-                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, smoothTime * Time.deltaTime);
+                    }      
                 }
                 break;
             }
-            case State.Closed:
+            case PortaEstado.Trancado:
             {
-                textoporta = "A porta está trancada.";
                 if (inRange == true)
                 {
-                    base.Show(textoporta);
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) && playerinventory.itemsID.Contains(requiredID))  
                     {
-                        if (player_Inventory.itemsID.Contains(keyID))
-                        {
-                            state = State.Open;
-                        }
-                    }
+                        ToggleDoor();
+                        state = PortaEstado.Aberto;
+                    }      
                 }
                 break;
             }
         }
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider collider)
     {
-        if (other.CompareTag("Player"))
+        if (collider.gameObject.tag == "Player")
         {
             inRange = true;
         }
     }
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider collider)
     {
-        if (other.CompareTag("Player"))
+        if (collider.gameObject.tag == "Player")
         {
             inRange = false;
         }
     }
-
     void ToggleDoor()
     {
         isOpen = !isOpen;
-        targetRotation = isOpen ? Quaternion.Euler(0, doorOpenAngle, 0) : Quaternion.Euler(0, doorCloseAngle, 0);
+        animator.SetBool("Open",isOpen);
     }
+
 }

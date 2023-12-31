@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     //public LadderScript ladderScript;
     public Camera playerCamera;
+    public bool outsideStop;
 
 
     [Header("run & crouch")]
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float runspd = 10.0f;
 
     private bool isRunning;
+    public bool isStoped;
     //crouch
     [SerializeField] float crouchHeight = 1f;
     [SerializeField] Vector3 standingHeight;
@@ -97,13 +99,20 @@ public class PlayerMovement : MonoBehaviour
                 {
                     estado = State.Subir;
                 }*/
-      
+                if (isStoped == true)
+                {
+                    estado = State.Parado;
+                }
                 break;
             }
             case State.Parado:
             {
                 ApplyGravity();
                 controller.Move(new Vector3(0,0,0));
+                if (isStoped == false)
+                {
+                    estado = State.Normal;
+                }
                 break;
             }
             case State.Subir:

@@ -9,12 +9,12 @@ public class ShowInteractionText : MonoBehaviour
     public TextMeshProUGUI containertext;
     public void Show(string texto)
     {
-        containertext.text = texto;
         container.SetActive(true);
+        containertext.text = texto;
     }
     public void Hide()
     {
-        containertext.text = "";
         container.SetActive(false);
+        containertext.text = "";
     }
 }

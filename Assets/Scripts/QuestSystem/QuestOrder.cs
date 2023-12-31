@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class QuestOrder : MonoBehaviour
 {
+    public bool isgone = false;
     public int armazen;
     public int generalOrder;
     public FadeScript fade;
@@ -19,7 +20,11 @@ public class QuestOrder : MonoBehaviour
         fade = FindObjectOfType<FadeScript>();
         if (generalOrder == 4)
         {
-            StartCoroutine(ChangeScene());
+            if (isgone == false)
+            {
+                StartCoroutine(ChangeScene());
+                isgone = true;
+            }
         }
     }
 
