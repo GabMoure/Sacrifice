@@ -98,15 +98,6 @@ public class Player_Inventory : MonoBehaviour
             StartCoroutine(LittleTime(item));
         }
 
-        if (itemscript.name == "puzzle")
-        {
-            if (item.tag == "Locker")
-            {
-                Gate_Puzzle gate_Puzzle = item.GetComponent<Gate_Puzzle>();
-                gate_Puzzle.enabled = true;
-                gate_Puzzle.Isinteract = true;
-            }
-        }
 
         if (itemscript.name == "nada")
         {
