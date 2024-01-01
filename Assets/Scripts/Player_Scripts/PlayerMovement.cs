@@ -23,9 +23,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isRunning;
     public bool isStoped;
     //crouch
+    /*
     [SerializeField] float crouchHeight = 1f;
     [SerializeField] Vector3 standingHeight;
     float crouchspeed = 2.5f;
+    */
 
 
     //gravidade
@@ -62,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         defaultYpos = playerCamera.transform.localPosition.y;
         isRunning = false;
         current_position = transform.position;
-        standingHeight = player.localScale;
+        //standingHeight = player.localScale;
         /*itemScr = GetComponent<ItemScript>();*/
     }
     void Update()
@@ -88,10 +90,11 @@ public class PlayerMovement : MonoBehaviour
                 ///
 
                 //agachar
+                /*
                 if (Input.GetKeyDown(KeyCode.LeftControl))
                 {
                     estado = State.Agachar;
-                }
+                }*/
 
                 /*
                 //escada
@@ -137,9 +140,11 @@ public class PlayerMovement : MonoBehaviour
             }
             case State.Agachar:
             {
+                /*
                 ApplyGravity();
                 Movement();
                 Crouch();
+                */
                 break;
             }
         }
@@ -185,6 +190,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Crouch()
     {
+        /*
         speed = crouchspeed;
         player.localScale = new Vector3(2,crouchHeight,2);
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -193,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
             player.localScale = standingHeight;
             estado = State.Normal;
         }
+        */
     }    
 
     public void Switch(int n)

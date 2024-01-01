@@ -5,14 +5,9 @@ using UnityEngine;
 public class door3 : MonoBehaviour
 {
 
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-    
+        
     }
 }

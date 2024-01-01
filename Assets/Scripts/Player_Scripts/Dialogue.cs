@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] List<string> dialogue2 = new List<string>();
     [SerializeField] GameObject container;
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] Locker_Script locker_script;
     private PlayerMovement playerMovement;
     public int c,lvl;
     private bool changed,area1;
@@ -23,6 +24,11 @@ public class Dialogue : MonoBehaviour
        if (lvl == 0 || area1 == true)
        {
             Talk();
+       }
+
+       if (locker_script.isActive == true)
+       {
+            playerMovement.isStoped = true;
        }
     }  
     void OnTriggerEnter(Collider collider)

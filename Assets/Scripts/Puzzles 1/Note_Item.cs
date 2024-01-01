@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Note_Item : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject container;
+    [SerializeField] PlayerMovement playerMovement;
+    public bool alternate;
     void Start()
     {
-        
+        container.SetActive(false);
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (alternate == true)
+        {
+            Read();
+        }
+        else
+        {
+            Unread();
+        }
+    }
+
+    public void Read()
+    {
+        playerMovement.isStoped = true;
+        container.SetActive(true);
+    }
+    public void Unread()
+    {
+        playerMovement.isStoped = false;
+        container.SetActive(false);
     }
 }

@@ -78,7 +78,7 @@ public class Player_Inventory : MonoBehaviour
         inventory.Add(item);
         Item_Script itemscript = item.GetComponent<Item_Script>();
         itemsID.Add(itemscript.id);
-        if (itemscript.name == "lantern")
+        if (itemscript.name == "lata")
         {
             Transform itempos = item.transform;
             Collider itemcollider = item.GetComponent<Collider>();
@@ -88,7 +88,7 @@ public class Player_Inventory : MonoBehaviour
             itembody.useGravity = false;
             //setting position
             itempos.position = playerHand.position;
-            itempos.rotation = cam.transform.rotation;
+            //itempos.rotation = cam.transform.rotation;
             //
             itembody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
         }
@@ -98,6 +98,31 @@ public class Player_Inventory : MonoBehaviour
             StartCoroutine(LittleTime(item));
         }
 
+        if (itemscript.name == "notas")
+        {
+            Note_Item noteItem = item.GetComponent<Note_Item>();
+            noteItem.alternate = !noteItem.alternate;
+
+        }
+
+        if (itemscript.name == "Cofre")
+        {
+            Locker_Script lockerscript = item.GetComponent<Locker_Script>();
+            lockerscript.EnterScene();
+
+        }
+
+        if (itemscript.name == "Abridor")
+        {
+            Abr_Lata abr_Lata = item.GetComponent<Abr_Lata>();
+            abr_Lata.Use();
+        }
+
+        if (itemscript.name == "saida")
+        {
+            Abrir_Alcapao abrir_Alcapao = item.GetComponent<Abrir_Alcapao>();
+            abrir_Alcapao.Open();
+        }
 
         if (itemscript.name == "nada")
         {
@@ -115,7 +140,7 @@ public class Player_Inventory : MonoBehaviour
     }
     IEnumerator LittleTime(GameObject item)
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(0.2f);
         item.SetActive(false);
     }
 }

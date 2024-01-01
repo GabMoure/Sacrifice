@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   itemname: key
-  text: Minha querida chave, minha maior compania.
+  text: "Uma chave.. n\xE3o reconhe\xE7o ela. Ela n\xE3o abre a porta."
