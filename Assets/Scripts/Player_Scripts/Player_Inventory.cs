@@ -124,6 +124,11 @@ public class Player_Inventory : MonoBehaviour
             abrir_Alcapao.Open();
         }
 
+        if (itemscript.name == "ladder")
+        {
+            ComeBack comeBack = item.GetComponent<ComeBack>();
+        }
+
         if (itemscript.name == "nada")
         {
             item.SetActive(false);
